@@ -1,0 +1,2 @@
+composer require symfony/orm-pack symfony/mercure-bundle symfony/panther symfony/mailer
+composer require --dev symfony/debug-pack
