@@ -1,1 +1,5 @@
 docker compose up --pull always -d --wait
+sudo rm .git -R
+sudo chown $USER: * -R
+./build
+
