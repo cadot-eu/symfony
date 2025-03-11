@@ -1,3 +1,18 @@
+# Installation pour un nouveau projet en mode rapide avec utilisation des scripts maison
+- git clone git@github.com:cadot-eu/symfony.git projet
+- cd projet
+- ./build
+- docker compose up --pull always -d --wait
+- docker exec -it toto ./install_libs_composer
+- dbashs
+- ./install_libs_composer
+- exit
+- sudo rm .git -R
+- dkillall
+- ./build
+- docker compose up --pull always -d --wait
+Creéer un repository github et l'ajouter au projet
+
 # Symfony Docker
 
 A [Docker](https://www.docker.com/)-based installer and runtime for the [Symfony](https://symfony.com) web framework,
