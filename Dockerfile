@@ -64,10 +64,22 @@ RUN apt-get install -y librabbitmq-dev && \
     pecl install amqp && \
     docker-php-ext-enable amqp
 
+#imagick
+RUN apt install -y libmagickwand-dev && \
+git clone https://github.com/Imagick/imagick.git --depth 1 /tmp/imagick && \
+cd /tmp/imagick && \
+git fetch origin master && \
+git switch master && \
+cd /tmp/imagick && \
+phpize && \
+./configure && \
+make && \
+make install && \
+docker-php-ext-enable imagick
 
 #GD
-RUN apt-get install -y libfreetype6-dev libjpeg62-turbo-dev libpng-dev
-RUN docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/
+RUN apt-get install -y libfreetype6-dev libjpeg62-turbo-dev libpng-dev libwebp-dev
+RUN docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ --with-webp=/usr/include
 RUN docker-php-ext-install gd
 
 #webp
