@@ -46,10 +46,10 @@ RUN apt-get update && apt-get install -y \
     zip
 
 #imagick
-RUN apt-get update && apt-get install -y \
-    libmagickwand-dev --no-install-recommends \
+RUN libmagickwand-dev --no-install-recommends \
     && pecl install imagick \
-	&& docker-php-ext-enable imagick
+	&& docker-php-ext-enable imagick \
+	&& docker-php-ext-configure imagick --with-imagick=/usr
 
 # Install PHP extensions
 RUN docker-php-ext-install \
